@@ -11,7 +11,10 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      
+      '/user': {
+        target: 'mtrip.enyes.net',
+        changeOrigin: true,
+      },
     },
 
     // Various Dev Server settings
