@@ -1,2 +1,20 @@
 @import './theme';
 @import './mixin';
+
+.theme-back {
+  background-color: #0bb27a;
+  color: #fff;
+  &:hover {
+    opacity: .9;
+    background-color: #0bb27a;
+    color: #fff;
+  }
+}
+
+.theme-color {
+  color: #0bb27a;
+  &:hover {
+    opacity: .9;
+    color: #0bb27a;
+  }
+}

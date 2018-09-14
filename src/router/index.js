@@ -4,13 +4,22 @@ import Cookies from 'js-cookie'
 
 import index from 'page/index/index'
 
+import login from 'page/login/login'
+
 Vue.use(Router)
 
 const router = new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
-      redirect: '/product/product-list',
+      name: 'index',
+      component: index,
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: login,
     },
   ],
 });
@@ -18,7 +27,7 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   const isLogged = Cookies.get('isLogged');
   if (isLogged && isLogged === 'true') {
-    to.path.includes('/login') ? next('/index') : next();
+    to.path.includes('/login') ? next('/') : next();
     return;
   } else {
     !to.path.includes('/login') ? next('/login') : next();

@@ -4,7 +4,7 @@
 
 import axios from 'axios'
 import Cookies from 'js-cookie'
-import { Message } from 'element-ui'
+import { Message } from 'iview'
 
 export default function () {
   axios.defaults.headers.common['Accept'] = 'application/json;charset=UTF-8';

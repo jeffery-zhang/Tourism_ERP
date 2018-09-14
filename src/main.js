@@ -9,6 +9,8 @@ import 'iview/dist/styles/iview.css'
 import 'css/global.scss'
 import 'css/common.scss'
 
+import axiosConfig from 'config/axios.default'
+
 Vue.use(iView)
 
 Vue.config.productionTip = false

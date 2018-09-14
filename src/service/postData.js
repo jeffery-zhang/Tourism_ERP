@@ -9,7 +9,7 @@ import axiosDefault from 'config/axios.default';
 
 axiosDefault();
 
-export default function () {
+function postData() {
   const method = 'post';
   const urls = config.postUrls;
   const postFunction = (url, params) => {
@@ -25,20 +25,8 @@ export default function () {
       .then(res => res.data);
   };
   return {
-    generateCode() {
-      return postFunction(urls.generateCode, {});
-    },
-    updatePromoCode(params) {
-      return postFunction(urls.updatePromoCode, params);
-    },
-    updatePrice(params) {
-      return postFunction(urls.updatePrice, params);
-    },
-    updateProductInfo(params) {
-      return postFunction(urls.updateProductInfo, params);
-    },
-    updateOrder(params) {
-      return postFunction(urls.updateOrder, params);
-    },
+    
   };
 };
+
+export default postData()

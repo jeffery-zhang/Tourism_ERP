@@ -6,11 +6,11 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import config from 'config/config';
 import axiosDefault from 'config/axios.default';
-import getQuery from 'service/getQuery'
+import getQuery from 'utils/getQuery'
 
 axiosDefault();
 
-export default function () {
+function getData() {
   const method = 'get';
   const urls = config.getUrls;
   const getFunction = (url, params = {}) => {
@@ -22,23 +22,8 @@ export default function () {
       .then(res => res.data);
   };
   return {
-    uploadInfo(type) {
-      return getFunction(urls.uploadInfo, { type });
-    },
-    getDiscountCodeList(page = 1, searchKey) {
-      return getFunction(urls.getDiscountCodeList, { page, searchKey });
-    },
-    getProductList(page = 1) {
-      return getFunction(urls.getProductList, { page });
-    },
-    getOrderList(page = 1, orderBy, status) {
-      return getFunction(urls.getOrderList, { page, orderBy, status });
-    },
-    getPromoOrder(page = 1, startDate, endDate, alias, promoCode) {
-      return getFunction(urls.getPromoOrder, { page, startDate, endDate, alias, promoCode });
-    },
-    getPromoReport(type, startDate, endDate, alias, promoCode) {
-      return getFunction(urls.getPromoReport, { type, startDate, endDate, alias, promoCode });
-    },
+
   }
 }
+
+export default getData()
