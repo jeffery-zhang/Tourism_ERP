@@ -22,7 +22,15 @@ function getData() {
       .then(res => res.data);
   };
   return {
-
+    getCompanyType() {
+      return getFunction(urls.getCompanyType);
+    },
+    getCompanyScale() {
+      return getFunction(urls.getCompanyScale);
+    },
+    getVerifyCode(phone) {
+      return getFunction(urls.getVerifyCode, { phone });
+    },
   }
 }
 

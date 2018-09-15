@@ -12,7 +12,11 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/user': {
-        target: 'mtrip.enyes.net',
+        target: 'http://mtrip.enyes.net',
+        changeOrigin: true,
+      },
+      '/config': {
+        target: 'http://mtrip.enyes.net',
         changeOrigin: true,
       },
     },

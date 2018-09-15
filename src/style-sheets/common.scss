@@ -18,3 +18,17 @@
     color: #0bb27a;
   }
 }
+
+.ivu-form-item.with-icon {
+  position: relative;
+  .ivu-select {
+    text-align: left;
+    text-indent: 24px;
+  }
+  i.select-icon {
+    position: absolute;
+    left: 7px;
+    top: 9px;
+    z-index: 999;
+  }
+}

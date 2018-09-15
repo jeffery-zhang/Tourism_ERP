@@ -9,11 +9,13 @@ import 'iview/dist/styles/iview.css'
 import 'css/global.scss'
 import 'css/common.scss'
 
-import axiosConfig from 'config/axios.default'
+import verifyCode from 'comp/verifyCode'
 
 Vue.use(iView)
 
 Vue.config.productionTip = false
+
+Vue.component('verifyCode', verifyCode)
 
 /* eslint-disable no-new */
 new Vue({
