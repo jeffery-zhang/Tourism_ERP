@@ -31,6 +31,8 @@ export default {
         const timer = setInterval(() => {
           this.count--;
           if (this.count < 0) {
+            this.status = 0;
+            this.count = 60;
             clearInterval(timer);
           }
         }, 1000);

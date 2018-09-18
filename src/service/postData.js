@@ -38,8 +38,8 @@ function postData() {
     register(params) {
       return postFunction(urls.register, params, true);
     },
-    login(phone, passowrd) {
-      return postFunction(urls.login, { phone, passowrd });
+    login(phone, password) {
+      return postFunction(urls.login, { phone, password });
     },
   };
 };
