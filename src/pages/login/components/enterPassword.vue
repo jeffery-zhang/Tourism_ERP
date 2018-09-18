@@ -24,18 +24,19 @@
 </template>
 
 <script>
+import Cookies from 'js-cookie'
 import post from 'service/postData'
 
 export default {
   name: 'enterPassword',
   props: [
     'step',
-    'phone',
   ],
   data () {
     return {
       loading: false,
       showPassword: false,
+      phone: '',
       form: {
         password: '',
       },
@@ -61,6 +62,9 @@ export default {
         })
       })
     },
+  },
+  mounted () {
+    this.phone = Cookies.get('phone')
   },
 }
 </script>

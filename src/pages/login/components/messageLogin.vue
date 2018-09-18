@@ -11,12 +11,14 @@
 </template>
 
 <script>
+import Cookies from 'js-cookie'
+
 export default {
   name: 'messageLogin',
-  props: ['phone'],
   data () {
     return {
       loading: false,
+      phone: '',
       form: {
         verifyCode: '',
       },
@@ -38,6 +40,9 @@ export default {
         this.loading = false;
       })
     },
+  },
+  mounted () {
+    this.phone = Cookies.get('phone')
   },
 }
 </script>

@@ -63,7 +63,7 @@ export default {
     position: absolute;
     left: 8px;
     top: 9px;
-    z-index: 999;
+    z-index: 3;
   }
 }
 </style>

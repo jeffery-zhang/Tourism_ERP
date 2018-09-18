@@ -48,7 +48,6 @@ import post from 'service/postData'
 
 export default {
   name: 'signup',
-  props: ['phone'],
   data () {
     return {
       loading: false,
@@ -101,7 +100,7 @@ export default {
     },
     register() {
       this.loading = true;
-      this.form.phone = Cookies.get('phone');
+      this.form.phone = this.phone;
       this.form.companyType = encodeURI(this.form.companyType);
       this.form.companyScale = encodeURI(this.form.companyScale);
       post.register(this.form).then(res => {
@@ -115,6 +114,7 @@ export default {
     },
   },
   mounted () {
+    this.phone = Cookies.get('phone')
     this.getCompanyType()
     this.getCompanyScale()
   },
