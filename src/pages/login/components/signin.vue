@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import Cookies from 'js-cookie'
 import get from 'service/getData'
 import post from 'service/postData'
 
@@ -41,8 +42,12 @@ export default {
         if (!valid) return;
         this.loading = true;
         post.checkUserPhone(this.form.phone).then(res => {
-          console.log(res);
-          this.$emit('validPhone', 1, this.form);
+          Cookies.set('phone', this.form.phone);
+          if (res.data == 1) {
+            this.$emit('validPhone', 1);
+          } else {
+            this.$emit('validPhone', 4);
+          }
           this.loading = false;
         }).catch(err => {
           this.loading = false;

@@ -6,9 +6,9 @@
       </div>
       <div class="login-bd">
         <signin :step="step" v-if="step === 0 || step === 3" @validPhone="changeStep"></signin>
-        <enter-password :step="step" :phone="form.phone" v-if="step === 1" @messageLogin="changeStep"></enter-password>
-        <message-login v-if="step === 2" :phone="form.phone"></message-login>
-        <signup v-if="step === 4" :phone="form.phone"></signup>
+        <enter-password :step="step" v-if="step === 1" @messageLogin="changeStep"></enter-password>
+        <message-login v-if="step === 2"></message-login>
+        <signup v-if="step === 4"></signup>
       </div>
       <div class="login-ft">
         <div v-if="step < 3">
@@ -46,7 +46,6 @@ export default {
     return {
       title: '手机号登录',
       step: 0,
-      form: {},
     }
   },
   methods: {
@@ -75,10 +74,7 @@ export default {
           break;
       }
     },
-    changeStep(step, form) {
-      if (form) {
-        this.form = form;
-      }
+    changeStep(step) {
       this.step = step;
     },
   },

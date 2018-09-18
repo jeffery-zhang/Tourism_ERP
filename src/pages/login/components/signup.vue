@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import Cookies from 'js-cookie'
 import get from 'service/getData'
 import post from 'service/postData'
 
@@ -100,9 +101,16 @@ export default {
     },
     register() {
       this.loading = true;
+      this.form.phone = Cookies.get('phone');
+      this.form.companyType = encodeURI(this.form.companyType);
+      this.form.companyScale = encodeURI(this.form.companyScale);
       post.register(this.form).then(res => {
-        this.$message.success(res.data)
-        this.loading = false;
+        if (res.result) {
+          this.$Message.success(res.data)
+          post.login(this.form.phone, this.form.password).then(res => {
+            this.loading = false;
+          })
+        }
       })
     },
   },
